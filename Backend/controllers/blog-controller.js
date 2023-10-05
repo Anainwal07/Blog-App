@@ -32,7 +32,7 @@ export const addBlog = async(req,res,next) => {
         });
     }
     const blog = new Blog({
-        title,
+        title,//title : title
         description,
         image,
         user,
