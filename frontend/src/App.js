@@ -7,6 +7,7 @@ import BlogDetail from './components/BlogDetail';
 import AddBlog from './components/AddBlog';
 import Blogs from './components/Blogs';
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -23,6 +24,11 @@ function App() {
         <Route path = "/myblogs" element={<UserBlogs/>}/>
         <Route path = "/myblogs/:id" element={<BlogDetail/>}/>
         <Route path = "/blogs/add" element={<AddBlog/>}/>
+        <Route path="*" 
+          Component={() => {
+            Navigate({ to: "/login" });
+          }}
+        />
       </Routes>
     </main>
   </React.Fragment>
