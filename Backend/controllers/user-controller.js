@@ -1,4 +1,3 @@
-import user from "../model/user";
 import User from "../model/user";
 import bcrypt from "bcryptjs";
 
@@ -18,7 +17,7 @@ export const getAllUser = async( req, res , next ) => {
 };
 
 export const signup = async (req,res , next) => {
-    const {name, email, password,blogs,} = req.body;
+    const {name, email, password,blogs} = req.body;
     let existingUser ;
     try {
         existingUser = await User.findOne({email});
@@ -58,7 +57,7 @@ export const login = async (req , res, next) => {
     }catch(err){
         return console.log(err);
     }
-    //if user is already there
+    //if user is not there
     if(!existingUser){
         return res.status(404).json({
             message : "User doesn't exist ! ",
